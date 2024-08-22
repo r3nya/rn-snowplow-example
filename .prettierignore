@@ -1,0 +1,7 @@
+.bundle
+.vscode
+android
+coverage
+ios
+patches
+vendor
