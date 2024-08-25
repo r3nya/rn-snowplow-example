@@ -1,11 +1,17 @@
 import CASES from '../constants/cases';
 import { View, StyleSheet } from 'react-native';
 import { Text, TouchableRipple } from 'react-native-paper';
+import { FC } from 'react';
 
-const CaseItem = (item: (typeof CASES)[number]) => {
+type CaseItemProps = {
+  item: (typeof CASES)[number],
+  onPress: () => void,
+};
+
+const CaseItem: FC<CaseItemProps> = ({ item, onPress }) => {
   return (
     <TouchableRipple
-      onPress={() => console.log('Pressed')}
+      onPress={onPress}
       rippleColor="rgba(0, 0, 0, .32)"
     >
       <View style={styles.container}>
