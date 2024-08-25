@@ -1,17 +1,16 @@
 import { createTracker } from '@snowplow/react-native-tracker';
 
-import CASES from './constants/cases';
-import DATA from './constants/data';
+import { COLLECTOR_URL } from '../config/api';
+import { CaseId } from '../types.ts';
 
-const COLLECTOR_URL = 'https://stream.datago.ru/collector';
+import CASES from '../constants/cases';
+import DATA from '../constants/data';
 
 const tracker = createTracker('appTracker', {
   endpoint: COLLECTOR_URL,
 });
 
-type CaseIdType = keyof typeof DATA;
-
-export const trackEventByCase = (caseId: CaseIdType) => {
+export const trackEventByCase = (caseId: CaseId) => {
   const eventCase = CASES.find((c) => c.id === caseId);
 
   if (eventCase) {
