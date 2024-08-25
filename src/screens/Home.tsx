@@ -19,14 +19,13 @@ function HomeScreen({ navigation }: Props) {
         <Divider />
 
         {CASES.map((item) => (
-          <>
+          <React.Fragment key={item.id}>
             <CaseItem
-              key={item.id}
               item={item}
               onPress={handleCaseItemPress(item)}
             />
             <Divider />
-          </>
+          </React.Fragment>
         ))}
       </View>
     </ScrollView>
