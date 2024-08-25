@@ -9,10 +9,13 @@ const tracker = createTracker('appTracker', {
   endpoint: COLLECTOR_URL,
 });
 
-export const trackEventByCase = (caseId: number) => {
+type CaseIdType = keyof typeof DATA;
+
+export const trackEventByCase = (caseId: CaseIdType) => {
   const eventCase = CASES.find((c) => c.id === caseId);
 
   if (eventCase) {
+    // @ts-ignore
     tracker.trackSelfDescribingEvent(DATA[caseId]);
   }
 };

@@ -1,6 +1,9 @@
 import { StyleSheet, ScrollView } from 'react-native';
 import React from 'react';
 import { DataTable, Text } from 'react-native-paper';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+
+import { RootStackParamList } from '../types';
 
 const styles = StyleSheet.create({
   valueCell: {
@@ -8,9 +11,10 @@ const styles = StyleSheet.create({
   },
 });
 
-function DetailsScreen({ route }) {
+type Props = NativeStackScreenProps<RootStackParamList, 'Details'>;
+
+function DetailsScreen({ route }: Props) {
   const { item } = route.params;
-  console.log(item);
 
   return (
     <ScrollView contentInsetAdjustmentBehavior="automatic">

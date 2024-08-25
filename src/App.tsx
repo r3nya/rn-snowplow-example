@@ -2,28 +2,33 @@ import React from 'react';
 import { PaperProvider, MD3LightTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar, useColorScheme } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationState } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './screens/Home';
 import DetailsScreen from './screens/Details';
 import { trackEventByCase } from './tracker';
+import type { RootStackParamList } from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
+  const handleStateChange = (state: NavigationState | undefined ) => {
+    if (!state) return;
+
+    const currentRoute = state.routes[state.index];
+
+    if (currentRoute.name === 'Details' && currentRoute.params) {
+      // @ts-ignore
+      trackEventByCase(currentRoute.params.item.id);
+    }
+  }
+
   return (
     <NavigationContainer
-      onStateChange={(state) => {
-        const currentRoute = state.routes[state.index];
-
-        if (currentRoute.name === 'Details') {
-          console.log(currentRoute.params.item.id);
-          trackEventByCase(currentRoute.params.item.id);
-        }
-      }}
+      onStateChange={handleStateChange}
     >
       <PaperProvider theme={MD3LightTheme}>
         <SafeAreaView style={{ flex: 1 }}>
