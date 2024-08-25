@@ -4,8 +4,8 @@ import { Text, TouchableRipple } from 'react-native-paper';
 import { FC } from 'react';
 
 type CaseItemProps = {
-  item: (typeof CASES)[number],
-  onPress: () => void,
+  item: (typeof CASES)[number];
+  onPress: () => void;
 };
 
 const CaseItem: FC<CaseItemProps> = ({ item, onPress }) => {

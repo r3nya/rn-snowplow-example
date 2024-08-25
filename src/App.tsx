@@ -2,12 +2,11 @@ import React from 'react';
 import { PaperProvider, MD3LightTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar, useColorScheme } from 'react-native';
-import { NavigationContainer, NavigationState } from "@react-navigation/native";
+import { NavigationContainer, NavigationState } from '@react-navigation/native';
 
-import AppNavigator from "./screens/root";
-import { CaseItem } from "./types";
-import { trackEventByCase } from "./utils/tracker";
-
+import AppNavigator from './screens/root';
+import { CaseItem } from './types';
+import { trackEventByCase } from './utils/tracker';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
