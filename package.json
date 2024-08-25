@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "format": "npx @biomejs/biome format --write",
     "start": "react-native start",
     "prettier": "prettier --write src/**/*",
     "test": "jest"
@@ -24,6 +25,7 @@
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
+    "@biomejs/biome": "1.8.3",
     "@react-native/babel-preset": "0.73.21",
     "@react-native/eslint-config": "0.73.2",
     "@react-native/metro-config": "0.73.5",
