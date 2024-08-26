@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CheckBox from "@react-native-community/checkbox";
 import { DataTable, Text, Button } from "react-native-paper";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
-import GLOBAL_CONTEXT from "../constants/data";
+import {GLOBAL_CONTEXT} from "../constants/data";
 
 import {
   trackEventByCase,

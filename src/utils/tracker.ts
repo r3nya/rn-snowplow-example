@@ -148,19 +148,6 @@ export const setUserId = (userIdData) => {
   }
 };
 
-export const trackEventByCaseWithGlobalContext = (
-  caseId: CaseId,
-  globalContextData
-) => {
-  const eventCase = CASES.find((c) => c.id === caseId);
-
-  if (eventCase) {
-    // @ts-ignore
-    updateGlobalContext(globalContextData);
-    trackEvent(DATA[caseId]);
-  }
-};
-
 export const trackScreenView = (screenData: ScreenViewProps) => {
   /*
   screenData: Object:
@@ -182,5 +169,18 @@ export const trackEventByCase = (caseId: CaseId) => {
   if (eventCase) {
     // @ts-ignore
     tracker.trackSelfDescribingEvent(DATA[caseId]);
+  }
+};
+
+export const trackEventByCaseWithGlobalContext = (
+  caseId: CaseId,
+  globalContextData
+) => {
+  const eventCase = CASES.find((c) => c.id === caseId);
+
+  if (eventCase) {
+    // @ts-ignore
+    updateGlobalContext(globalContextData);
+    trackEvent(DATA[caseId]);
   }
 };
