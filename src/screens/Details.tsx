@@ -1,6 +1,6 @@
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView , View} from 'react-native';
 import React from 'react';
-import { DataTable, Text } from 'react-native-paper';
+import { DataTable, Text , Checkbox, Button} from 'react-native-paper';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { RootStackParamList } from '../types';
@@ -52,7 +52,18 @@ function DetailsScreen({ route }: Props) {
             <Text variant="bodyLarge">{item.description}</Text>
           </DataTable.Cell>
         </DataTable.Row>
+
+
       </DataTable>
+
+      <View>
+        <Checkbox.Item label="Update Global Context" status="checked" />
+      </View>
+      <View>
+        <Button mode="contained" onPress={() => console.log('Pressed')}>
+          Send Event
+        </Button>
+      </View>
     </ScrollView>
   );
 }

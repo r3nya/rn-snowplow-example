@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './screens/Home';
 import DetailsScreen from './screens/Details';
-import { trackEventByCase } from './tracker';
+import { trackScreenView } from './tracker';
 import type { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -22,7 +22,8 @@ function App(): React.JSX.Element {
 
     if (currentRoute.name === 'Details' && currentRoute.params) {
       // @ts-ignore
-      trackEventByCase(currentRoute.params.item.id);
+      trackScreenView({name: currentRoute.params.item.case, type: 'Detail', transitionType: ''});
+      // trackEventByCase(currentRoute.params.item.id);
     }
   }
 
