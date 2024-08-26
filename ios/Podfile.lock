@@ -1121,6 +1121,10 @@ PODS:
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
     - React-RCTImage
+  - RNVectorIcons (10.1.0):
+    - glog
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
   - snowplow-react-native-tracker (2.0.0):
     - glog
     - RCT-Folly (= 2022.05.16.00)
@@ -1207,6 +1211,7 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - "snowplow-react-native-tracker (from `../node_modules/@snowplow/react-native-tracker`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -1328,6 +1333,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   snowplow-react-native-tracker:
     :path: "../node_modules/@snowplow/react-native-tracker"
   Yoga:
@@ -1396,6 +1403,7 @@ SPEC CHECKSUMS:
   React-utils: dab84549e65d6d711937b9c34d9f6d8fb8bd711c
   ReactCommon: 3dc453f427d2f3d7f2c71499d191b456f83c59bd
   RNScreens: 29418ceffb585b8f0ebd363de304288c3dce8323
+  RNVectorIcons: 96e8c5c45609932bb2f8347e1c709bcca0e95654
   snowplow-react-native-tracker: 14de7c407ac55b13817937e25dd3f1187f7369f9
   SnowplowTracker: eaf0737e24af09cce042682f9f7d0053d7ed0071
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
