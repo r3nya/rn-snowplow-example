@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import CheckBox from "@react-native-community/checkbox";
 import { DataTable, Text, Button } from "react-native-paper";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import GLOBAL_CONTEXT from "../constants/data";
 
 import {
   trackEventByCase,
@@ -25,7 +26,7 @@ function DetailsScreen({ route }: Props) {
 
   const handleSendEventPress = () => {
     if (toggleCheckBox) {
-      trackEventByCaseWithGlobalContext(item.id);
+      trackEventByCaseWithGlobalContext(item.id, GLOBAL_CONTEXT);
     } else {
       trackEventByCase(item.id);
     }

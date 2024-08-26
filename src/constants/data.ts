@@ -1,3 +1,62 @@
+export const GLOBAL_CONTEXT =       {
+  tag: "globalContext",
+  globalContexts: [
+    {
+      schema: "iglu:ru.datago/user_context/jsonschema/1-0-0",
+      data: {
+        userId: "%NewuserId%",
+        userEmail: "%hashUserEmail%",
+        userPhone: "%hashPhone%",
+        userDataGoId: "",
+      },
+    },
+    {
+      schema: "iglu:ru.datago/ga4_user_params_context/jsonschema/1-0-0",
+      data: {
+        "%userParam1%": "%newUserParamValue1%",
+        //"%userParam2%" to "%userParamValue2%",
+        //"%userParam3%" to "%userParamValue3%",
+        // ...
+        //"%userParamN%" to "%userParamValueN%",
+        // кол-во параметров ограничено размером отправляемых данных в настройках трекера
+      },
+    },
+    {
+      schema: "iglu:ru.datago/custom_dimension/jsonschema/1-0-0",
+      data: {
+        customDimension1: "%NewValue1%",
+        // "customDimension2" to "%Value2%",
+        // "customDimension3" to "%Value3%",
+        // ....
+        // "customDimensionN" to "%ValueN%",
+        // кол-во параметров ограничено размером отправляемых данных в настройках трекера
+      },
+    },
+    {
+      schema: "iglu:ru.datago/custom_metric/jsonschema/1-0-0",
+      data: {
+        customMetric1: 123,
+        // "customMetric2" to 2,
+        // "customMetric3" to 3,
+        // ....
+        // "customMetricN" to 9000000000,
+        // кол-во параметров ограничено размером отправляемых данных в настройках трекера
+      },
+    },
+    {
+      schema: "iglu:ru.datago/custom_group/jsonschema/1-0-0",
+      data: {
+        customGroup1: "%NewValue1%",
+        // "customGroup2" to "%Value2%",
+        // "customGroup3" to "%Value3%",
+        // ....
+        // "customGroupN" to "%ValueN%",
+        // кол-во параметров ограничено размером отправляемых данных в настройках трекера
+      },
+    },
+  ],
+}
+
 export const DATA = {
   1: {
     schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ

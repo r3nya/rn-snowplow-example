@@ -1365,11 +1365,11 @@ SPEC CHECKSUMS:
   FlipperKit: 37525a5d056ef9b93d1578e04bc3ea1de940094f
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: 79d13cd7c34b5d0cea5f4ca72c0e6b462ef8fb4d
+  glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   hermes-engine: ed62e0dcd013bf4a3b487f164feec1c4e705b5b5
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
-  RCT-Folly: 082c31bb88ae3582d685f8923b9938147be587b3
+  RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
   RCTRequired: d362a61864a64315aee00faea8dee6cf5b3f4aad
   RCTTypeSafety: 09baf60faeab02492dc8bf04ce5af1dda645b86d
   React: b87c7c7c12f8232bd7cfdc4a00bf687144c17e30
@@ -1417,7 +1417,7 @@ SPEC CHECKSUMS:
   snowplow-react-native-tracker: 14de7c407ac55b13817937e25dd3f1187f7369f9
   SnowplowTracker: eaf0737e24af09cce042682f9f7d0053d7ed0071
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
-  Yoga: 57d2ffe418d024d56f8b0047f335c677e4c4d9ac
+  Yoga: 6aaa3c45f0fda0c6929f855121622669dabe1aaf
 
 PODFILE CHECKSUM: 54cb80ff8f620a7abd6f930025ed4c063d7a381e
 
