@@ -1,9 +1,10 @@
-import { StyleSheet, ScrollView } from 'react-native';
-import React from 'react';
-import { DataTable, Text } from 'react-native-paper';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { StyleSheet, ScrollView, View } from "react-native";
+import React, { useState } from "react";
+import CheckBox from "@react-native-community/checkbox";
+import { DataTable, Text, Button } from "react-native-paper";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import { RootStackParamList } from '../types';
+import { RootStackParamList } from "../types";
 
 const styles = StyleSheet.create({
   valueCell: {
@@ -11,10 +12,12 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Details'>;
+type Props = NativeStackScreenProps<RootStackParamList, "Details">;
 
 function DetailsScreen({ route }: Props) {
   const { item } = route.params;
+
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
 
   return (
     <ScrollView contentInsetAdjustmentBehavior="automatic">
@@ -53,6 +56,27 @@ function DetailsScreen({ route }: Props) {
           </DataTable.Cell>
         </DataTable.Row>
       </DataTable>
+
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          padding: 16,
+        }}
+      >
+        <CheckBox
+          disabled={false}
+          value={toggleCheckBox}
+          onValueChange={(newValue) => setToggleCheckBox(newValue)}
+        />
+
+        <Text style={{ paddingLeft: 8 }}>Update Global Context</Text>
+      </View>
+      <View style={{ paddingHorizontal: 16, paddingVertical: 16 }}>
+        <Button mode="contained" onPress={() => console.log("Pressed")}>
+          Send Event
+        </Button>
+      </View>
     </ScrollView>
   );
 }
