@@ -149,14 +149,12 @@ export const updateGlobalContext = (globalContextData) => {
   }
 };
 
-export const setUserId = (userIdData) => {
+export const setUserId = (userId) => {
   /*
-  userIdData: Object:
-    keys:
-      userId: required: String
+  userId: required: String:
   */
   try {
-    tracker.setUserId(userIdData);
+    tracker.setUserId(userId);
   } catch (e) {
     // Do something with error
   }
