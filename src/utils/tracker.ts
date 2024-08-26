@@ -109,6 +109,9 @@ const tracker = createTracker(
 );
 
 export const trackEvent = (eventData) => {
+  /*
+  eventData: Object: пример в /src/constants/data.ts
+  */
   try {
     tracker.trackSelfDescribingEvent(eventData);
   } catch (e) {
@@ -117,6 +120,13 @@ export const trackEvent = (eventData) => {
 };
 
 export const trackPageView = (pageData) => {
+  /*
+  pageData: Object:
+    keys:
+      pageUrl: required: String: 
+      pageTitle: optional: String: 
+      referrer: : optional: String: 
+  */
   try {
     tracker.trackPageViewEvent(pageData);
   } catch (e) {
@@ -124,14 +134,13 @@ export const trackPageView = (pageData) => {
   }
 };
 
-export const trackDeepLinkReceived = (deepLinkData) => {
-  try {
-    tracker.trackDeepLinkReceivedEvent(deepLinkData);
-  } catch (e) {
-    // Do something with error
-  }
-};
 export const updateGlobalContext = (globalContextData) => {
+  /*
+  globalContextData: Object:
+    keys:
+      tag: required: String: используйте значение globalContext
+      globalContexts: required: list[Objects]: пример в /src/constants/data.ts
+  */
   try {
     tracker.removeGlobalContexts("globalContext");
     tracker.addGlobalContexts(globalContextData);
@@ -141,6 +150,11 @@ export const updateGlobalContext = (globalContextData) => {
 };
 
 export const setUserId = (userIdData) => {
+  /*
+  userIdData: Object:
+    keys:
+      userId: required: String
+  */
   try {
     tracker.setUserId(userIdData);
   } catch (e) {
