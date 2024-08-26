@@ -15,13 +15,13 @@ const tracker = createTracker(
     endpoint: COLLECTOR_URL,
   },
   {
-    // Олщие настройки треккера
+    // Общие настройки треккера
     trackerConfig: {
       appId: "%YourAppId%", // YourAppId - app_id вашего приложения. будет передаваться в поле trackingId
       base64Encoding: false,
       applicationContext: true,
       platformContext: true,
-      geoLocationContext: true,
+      geoLocationContext: false,
       sessionContext: true,
       screenContext: true,
       screenViewAutotracking: true,
@@ -112,10 +112,12 @@ export const trackEvent = (eventData) => {
   /*
   eventData: Object: пример в /src/constants/data.ts
   */
+  tracker.trackSelfDescribingEvent(eventData);
   try {
     tracker.trackSelfDescribingEvent(eventData);
   } catch (e) {
     // Do something with error
+    console.log(e)
   }
 };
 
@@ -131,6 +133,7 @@ export const trackPageView = (pageData) => {
     tracker.trackPageViewEvent(pageData);
   } catch (e) {
     // Do something with error
+    console.log(e)
   }
 };
 
@@ -146,6 +149,7 @@ export const updateGlobalContext = (globalContextData) => {
     tracker.addGlobalContexts(globalContextData);
   } catch (e) {
     // Do something with error
+    console.log(e)
   }
 };
 
@@ -157,6 +161,7 @@ export const setUserId = (userId) => {
     tracker.setUserId(userId);
   } catch (e) {
     // Do something with error
+    console.log(e)
   }
 };
 
@@ -172,6 +177,7 @@ export const trackScreenView = (screenData: ScreenViewProps) => {
     tracker.trackScreenViewEvent(screenData);
   } catch (e) {
     // Do something with error
+    console.log(e)
   }
 };
 
@@ -180,7 +186,9 @@ export const trackEventByCase = (caseId: CaseId) => {
 
   if (eventCase) {
     // @ts-ignore
-    tracker.trackSelfDescribingEvent(DATA[caseId]);
+    // tracker.trackSelfDescribingEvent(DATA[caseId]).then((data) => {console.log(data)})
+    trackEvent(DATA[caseId]);
+
   }
 };
 
