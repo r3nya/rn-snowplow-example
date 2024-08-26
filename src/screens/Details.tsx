@@ -4,6 +4,10 @@ import CheckBox from "@react-native-community/checkbox";
 import { DataTable, Text, Button } from "react-native-paper";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
+import {
+  trackEventByCase,
+  trackEventByCaseWithGlobalContext,
+} from "../utils/tracker";
 import { RootStackParamList } from "../types";
 
 const styles = StyleSheet.create({
@@ -18,6 +22,14 @@ function DetailsScreen({ route }: Props) {
   const { item } = route.params;
 
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
+
+  const handleSendEventPress = () => {
+    if (toggleCheckBox) {
+      trackEventByCaseWithGlobalContext(item.id);
+    } else {
+      trackEventByCase(item.id);
+    }
+  };
 
   return (
     <ScrollView contentInsetAdjustmentBehavior="automatic">
@@ -73,7 +85,7 @@ function DetailsScreen({ route }: Props) {
         <Text style={{ paddingLeft: 8 }}>Update Global Context</Text>
       </View>
       <View style={{ paddingHorizontal: 16, paddingVertical: 16 }}>
-        <Button mode="contained" onPress={() => console.log("Pressed")}>
+        <Button mode="contained" onPress={handleSendEventPress}>
           Send Event
         </Button>
       </View>
