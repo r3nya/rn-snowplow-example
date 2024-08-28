@@ -108,16 +108,15 @@ const tracker = createTracker(
   }
 );
 
-export const trackEvent = (eventData) => {
+export const trackEvent = async (eventData) => {
   /*
   eventData: Object: пример в /src/constants/data.ts
   */
-  tracker.trackSelfDescribingEvent(eventData);
   try {
+  console.log(sessionUserId)
     tracker.trackSelfDescribingEvent(eventData);
   } catch (e) {
     // Do something with error
-    console.log(e)
   }
 };
 
@@ -190,6 +189,16 @@ export const trackEventByCase = (caseId: CaseId) => {
     trackEvent(DATA[caseId]);
 
   }
+};
+
+export const getSnowplowUserId = async () => {
+  try {
+    return await tracker.getSessionUserId();
+  } catch (e) {
+    // Do something with error
+    console.log(e)
+  }
+  
 };
 
 export const trackEventByCaseWithGlobalContext = (
