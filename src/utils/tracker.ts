@@ -108,7 +108,7 @@ const tracker = createTracker(
   }
 );
 
-export const trackEvent = async (eventData) => {
+export const trackEvent =  (eventData) => {
   /*
   eventData: Object: пример в /src/constants/data.ts
   */
