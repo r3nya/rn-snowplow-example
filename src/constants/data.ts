@@ -1,8 +1,19 @@
+import {
+  SCHEMA_USER_CONTEXT,
+  SCHEMA_GA4_USER_PARAMS_SCHEMA,
+  SCHEMA_CUSTOM_DIMENSION_SCHEMA,
+  SCHEMA_CUSTOM_METRIC_SCHEMA,
+  SCHEMA_CUSTOM_GROUPS_SCHEMA,
+  SCHEMA_EVENT_SCHEMA,
+  GA4_EVENT_STRUCTURE,
+  GAUA_EVENT_STRUCTURE
+} from "../constants/var";
+
 export const GLOBAL_CONTEXT =       {
   tag: "globalContext",
   globalContexts: [
     {
-      schema: "iglu:ru.datago/user_context/jsonschema/1-0-0",
+      schema: SCHEMA_USER_CONTEXT,
       data: {
         userId: "%NewuserId%",
         userEmail: "%hashUserEmail%",
@@ -11,7 +22,7 @@ export const GLOBAL_CONTEXT =       {
       },
     },
     {
-      schema: "iglu:ru.datago/ga4_user_params_context/jsonschema/1-0-0",
+      schema: SCHEMA_GA4_USER_PARAMS_SCHEMA ,
       data: {
         "%userParam1%": "%newUserParamValue1%",
         //"%userParam2%" to "%userParamValue2%",
@@ -22,7 +33,7 @@ export const GLOBAL_CONTEXT =       {
       },
     },
     {
-      schema: "iglu:ru.datago/custom_dimension/jsonschema/1-0-0",
+      schema: SCHEMA_CUSTOM_DIMENSION_SCHEMA,
       data: {
         customDimension1: "%NewValue1%",
         // "customDimension2" to "%Value2%",
@@ -33,7 +44,7 @@ export const GLOBAL_CONTEXT =       {
       },
     },
     {
-      schema: "iglu:ru.datago/custom_metric/jsonschema/1-0-0",
+      schema: SCHEMA_CUSTOM_METRIC_SCHEMA,
       data: {
         customMetric1: 123,
         // "customMetric2" to 2,
@@ -44,7 +55,7 @@ export const GLOBAL_CONTEXT =       {
       },
     },
     {
-      schema: "iglu:ru.datago/custom_group/jsonschema/1-0-0",
+      schema: SCHEMA_CUSTOM_GROUPS_SCHEMA,
       data: {
         customGroup1: "%NewValue1%",
         // "customGroup2" to "%Value2%",
@@ -59,7 +70,7 @@ export const GLOBAL_CONTEXT =       {
 
 export const DATA = {
   1: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
       event: 'ScreenView', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       screenName: '%screenNameValue%', //Название экрана: String: Обязательный параметр
@@ -76,9 +87,9 @@ export const DATA = {
     },
   },
   2: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -96,9 +107,9 @@ export const DATA = {
     },
   },
   3: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
 
       // В eventContext любые дополнительные параметры события
@@ -112,9 +123,9 @@ export const DATA = {
     },
   },
   4: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -159,9 +170,9 @@ export const DATA = {
     },
   },
   5: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'view_item_list', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -210,9 +221,9 @@ export const DATA = {
     },
   },
   6: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -266,9 +277,9 @@ export const DATA = {
     },
   },
   7: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'select_item', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -317,9 +328,9 @@ export const DATA = {
     },
   },
   8: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -372,9 +383,9 @@ export const DATA = {
     },
   },
   9: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'view_item', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -423,9 +434,9 @@ export const DATA = {
     },
   },
   10: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -479,9 +490,9 @@ export const DATA = {
     },
   },
   11: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'add_to_cart', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -530,9 +541,9 @@ export const DATA = {
     },
   },
   12: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -586,9 +597,9 @@ export const DATA = {
     },
   },
   13: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'remove_from_cart', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -637,9 +648,9 @@ export const DATA = {
     },
   },
   14: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -693,9 +704,9 @@ export const DATA = {
     },
   },
   15: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'begin_checkout', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -745,9 +756,9 @@ export const DATA = {
     },
   },
   16: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -804,9 +815,9 @@ export const DATA = {
     },
   },
   17: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'purchase', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -859,9 +870,9 @@ export const DATA = {
     },
   },
   18: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -917,9 +928,9 @@ export const DATA = {
     },
   },
   19: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'refund', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -972,9 +983,9 @@ export const DATA = {
     },
   },
   20: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -1006,9 +1017,9 @@ export const DATA = {
     },
   },
   21: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'view_promotion', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -1059,9 +1070,9 @@ export const DATA = {
     },
   },
   22: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'UA', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GAUA_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: '%eventName%', // Название события: String: Обязательный параметр
       eventCategory: '%eventCategoryValue%', // Категория события: String: Обязательный параметр: по аналогии с GA UA
       eventAction: '%eventActionValue%', // Действие по события: String: Обязательный параметр: по аналогии с GA UA
@@ -1093,9 +1104,9 @@ export const DATA = {
     },
   },
   23: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'select_promotion', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -1146,9 +1157,9 @@ export const DATA = {
     },
   },
   24: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'view_cart', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -1197,9 +1208,9 @@ export const DATA = {
     },
   },
   25: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'add_to_wishlist', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -1248,9 +1259,9 @@ export const DATA = {
     },
   },
   26: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'add_shipping_info', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события
@@ -1301,9 +1312,9 @@ export const DATA = {
     },
   },
   27: {
-    schema: 'iglu:ru.datago/event/jsonschema/1-0-0', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+    schema: SCHEMA_EVENT_SCHEMA, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
     data: {
-      eventStructure: 'GA4', // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
+      eventStructure: GA4_EVENT_STRUCTURE, // Это константное значение: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
       event: 'add_payment_info', // Название события: String: НЕ МЕНЯТЬ!!! НЕ УДАЛЯТЬ
 
       // В eventContext любые дополнительные параметры события

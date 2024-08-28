@@ -113,7 +113,6 @@ export const trackEvent =  (eventData) => {
   eventData: Object: пример в /src/constants/data.ts
   */
   try {
-  console.log(sessionUserId)
     tracker.trackSelfDescribingEvent(eventData);
   } catch (e) {
     // Do something with error
@@ -198,7 +197,6 @@ export const getSnowplowUserId = async () => {
     // Do something with error
     console.log(e)
   }
-  
 };
 
 export const trackEventByCaseWithGlobalContext = (
